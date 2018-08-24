@@ -1,0 +1,511 @@
+[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "workerAddresses",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "workers",
+    "outputs": [
+      {
+        "name": "signer",
+        "type": "address"
+      },
+      {
+        "name": "report",
+        "type": "bytes"
+      },
+      {
+        "name": "balance",
+        "type": "uint256"
+      },
+      {
+        "name": "status",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "engToken",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "tasks",
+    "outputs": [
+      {
+        "name": "dappContract",
+        "type": "address"
+      },
+      {
+        "name": "callable",
+        "type": "string"
+      },
+      {
+        "name": "callableArgs",
+        "type": "bytes"
+      },
+      {
+        "name": "callback",
+        "type": "string"
+      },
+      {
+        "name": "worker",
+        "type": "address"
+      },
+      {
+        "name": "sig",
+        "type": "bytes"
+      },
+      {
+        "name": "reward",
+        "type": "uint256"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "name": "status",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_tokenAddress",
+        "type": "address"
+      },
+      {
+        "name": "_principal",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "custodian",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "signer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "_success",
+        "type": "bool"
+      }
+    ],
+    "name": "Register",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "sig",
+        "type": "bytes"
+      },
+      {
+        "indexed": false,
+        "name": "hash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "workerAddr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "_success",
+        "type": "bool"
+      }
+    ],
+    "name": "ValidateSig",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "dappContract",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "worker",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "sig",
+        "type": "bytes"
+      },
+      {
+        "indexed": false,
+        "name": "reward",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_success",
+        "type": "bool"
+      }
+    ],
+    "name": "CommitResults",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "seed",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "workers",
+        "type": "address[]"
+      },
+      {
+        "indexed": false,
+        "name": "_success",
+        "type": "bool"
+      }
+    ],
+    "name": "WorkersParameterized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "dappContract",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "taskId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "callable",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "callableArgs",
+        "type": "bytes"
+      },
+      {
+        "indexed": false,
+        "name": "callback",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "fee",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "preprocessors",
+        "type": "bytes32[]"
+      },
+      {
+        "indexed": false,
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_success",
+        "type": "bool"
+      }
+    ],
+    "name": "ComputeTask",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "signer",
+        "type": "address"
+      },
+      {
+        "name": "report",
+        "type": "bytes"
+      }
+    ],
+    "name": "register",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "dappContract",
+        "type": "address"
+      },
+      {
+        "name": "callable",
+        "type": "string"
+      },
+      {
+        "name": "callableArgs",
+        "type": "bytes"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "generateTaskId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "dappContract",
+        "type": "address"
+      },
+      {
+        "name": "callable",
+        "type": "string"
+      },
+      {
+        "name": "callableArgs",
+        "type": "bytes"
+      },
+      {
+        "name": "callback",
+        "type": "string"
+      },
+      {
+        "name": "fee",
+        "type": "uint256"
+      },
+      {
+        "name": "preprocessors",
+        "type": "bytes32[]"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "compute",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "taskId",
+        "type": "bytes32"
+      },
+      {
+        "name": "data",
+        "type": "bytes"
+      },
+      {
+        "name": "sig",
+        "type": "bytes"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "commitResults",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "seed",
+        "type": "uint256"
+      },
+      {
+        "name": "sig",
+        "type": "bytes"
+      }
+    ],
+    "name": "setWorkersParams",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "blockNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getWorkersParams",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "name": "taskId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "selectWorker",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "custodian",
+        "type": "address"
+      }
+    ],
+    "name": "getReport",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      },
+      {
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

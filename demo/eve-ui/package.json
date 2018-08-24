@@ -1,0 +1,23 @@
+{
+  "name": "eve-ui",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.0.0-beta.55",
+    "elliptic": "^6.4.1",
+    "eth-crypto": "^1.2.3",
+    "meteor-node-stubs": "^0.4.1",
+    "node-forge": "^0.7.5",
+    "rlp": "^2.1.0",
+    "web3": "^1.0.0-beta.35",
+    "web3-utils": "^1.0.0-beta.35"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js"
+    }
+  }
+}

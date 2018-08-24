@@ -1,0 +1,37 @@
+<body>
+    <div class="ui container" style="text-align: center;">
+        <div class="ui hidden divider"></div>
+        <h1>EVE</h1>
+
+        <div class="ui divider"></div>
+
+        <b>Voter address: {{user_address}}</b>
+        <br><br>
+        <b>Has voted: {{#if has_voted}}Yes{{else}}No{{/if}}</b>
+        <br><br>
+
+        <div class="ui divider"></div>
+
+        <div class="ui toggle checkbox">
+            <input id="vote_option" type="checkbox">
+            <label>Support proposal</label>
+        </div>
+        <br><br>
+        <div class="ui button positive fluid">Vote</div>
+
+        <div class="ui divider"></div>
+
+        <b>Encrypted vote: {{vote}}</b>
+
+        <div class="ui divider"></div>
+
+        <b>Number of votes: {{num_votes}}</b>
+        <br><br>
+        <b>Current tally: {{tally}}</b>
+        <br><br>
+
+        <div class="ui button fluid">Tally votes & update tally (2 txs)</div>
+        <br>
+        <div class="ui button fluid">Get current tally</div>
+    </div>
+</body>
