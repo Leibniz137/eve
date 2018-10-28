@@ -15,7 +15,7 @@ It achieves:
 
 ### How does it work?
 
-The current implementation makes use of Enigma (https://enigma.co/)—a decentralized private computing platform. EVE uses Enigma to trustlessly, securely, and privately tally votes submitted to a voting smart contract.
+The current implementation makes use of Enigma ([https://enigma.co/](https://enigma.co/))—a decentralized private computing platform. EVE uses Enigma to trustlessly, securely, and privately tally votes submitted to a voting smart contract.
 
 ### Why is it cooler than other similar solutions? (e.g. homomorphic crypto based ones)
 
